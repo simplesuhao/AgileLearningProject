@@ -1,6 +1,7 @@
-package com.sim.test;
+package com.lesson1.test;
 
-import com.sim.student.Pawn;
+import com.lesson1.Pawn;
+
 
 public class PawnTest extends junit.framework.TestCase{
 	public void testCreate(){

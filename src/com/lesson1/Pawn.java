@@ -1,4 +1,4 @@
-package com.sim.student;
+package com.lesson1;
 
 public class Pawn {
 	private String color;

@@ -1,6 +1,7 @@
-package com.sim.test;
+package com.lesson1.test;
 
-import com.sim.student.Student;
+import com.lesson1.Student;
+
 
 public class StudentTest extends junit.framework.TestCase{
 	public void testCreate(){
