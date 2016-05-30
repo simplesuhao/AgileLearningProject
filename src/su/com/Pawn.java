@@ -1,7 +1,12 @@
-package com.lesson1;
+package su.com;
 
 public class Pawn {
 	private String color;
+	final String redPawn = "red";
+	final String blackPawn = "black";
+	public Pawn(){
+		color = "white";
+	}
 	public Pawn(String color){
 		this.color = color;
 	}
@@ -11,5 +16,4 @@ public class Pawn {
 	public void setColor(String color) {
 		this.color = color;
 	}
-	
 }

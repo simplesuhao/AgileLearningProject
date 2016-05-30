@@ -1,4 +1,4 @@
-package com.lesson2;
+package com.lesson2.test;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import com.lesson1.Student;
+import com.lesson2.CourseSession;
 
 import junit.framework.TestCase;
 
