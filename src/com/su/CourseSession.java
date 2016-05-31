@@ -10,6 +10,11 @@ public class CourseSession {
 	private String number;
 	private Date startDate;
 	private ArrayList<Student> students = new ArrayList<>();
+	
+	public ArrayList<Student> getStudents() {
+		return students;
+	}
+
 	public CourseSession(String department, String number) {
 		super();
 		this.department = department;
@@ -22,6 +27,7 @@ public class CourseSession {
 		this.number = number;
 		this.startDate = startDate;
 	}
+	
 	public Date getEndDate(){
 		GregorianCalendar calendar = new GregorianCalendar();
 		calendar.setTime(startDate);
@@ -66,5 +72,4 @@ public class CourseSession {
 	public int getNumberOfStudents(){
 		return students.size();
 	}
-
 }

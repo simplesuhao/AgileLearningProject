@@ -1,14 +1,14 @@
 package com.su.test;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import com.su.CourseSession;
-import com.su.Student;
-
 import junit.framework.TestCase;
+
+import com.su.CourseSession;
+import com.su.RosterReporter;
+import com.su.Student;
 
 public class CourseSessionTest extends TestCase{
 	private CourseSession session;
@@ -51,6 +51,18 @@ public class CourseSessionTest extends TestCase{
 		calendar.set(Calendar.MONTH, month - 1 );
 		calendar.set(Calendar.DAY_OF_MONTH, date);
 		return calendar.getTime();
+	}
+	
+	public void testRosterReport(){
+		session.enroll(new Student("A"));
+		session.enroll(new Student("B"));
+		
+		String rosterReport = new RosterReporter(session).getReport();;
+		assertEquals(
+				RosterReporter.ROSTER_REPORT_HEADER 
+				+ "A" + RosterReporter.NEWLINE
+				+ "B" + RosterReporter.NEWLINE
+				+ RosterReporter.ROSTER_REPORT_FOOTER + "2" + RosterReporter.NEWLINE, rosterReport);
 	}
 	
 }
