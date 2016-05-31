@@ -1,11 +1,9 @@
-package com.lesson2;
+package com.su;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-
-import com.lesson1.Student;
 
 public class CourseSession {
 	private String department;
