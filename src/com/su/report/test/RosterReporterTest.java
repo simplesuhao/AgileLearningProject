@@ -1,11 +1,11 @@
-package com.su.test;
+package com.su.report.test;
 
 import junit.framework.TestCase;
 
-import com.su.CourseSession;
-import com.su.DateUtil;
-import com.su.RosterReporter;
-import com.su.Student;
+import com.su.report.RosterReporter;
+import com.su.studentinfo.CourseSession;
+import com.su.studentinfo.DateUtil;
+import com.su.studentinfo.Student;
 
 public class RosterReporterTest extends TestCase{
 	public void testRosterReport(){

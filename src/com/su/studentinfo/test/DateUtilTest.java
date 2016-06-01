@@ -1,10 +1,10 @@
-package com.su.test;
+package com.su.studentinfo.test;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import com.su.DateUtil;
+import com.su.studentinfo.DateUtil;
 
 import junit.framework.TestCase;
 

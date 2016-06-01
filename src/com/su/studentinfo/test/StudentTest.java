@@ -1,6 +1,6 @@
-package com.su.test;
+package com.su.studentinfo.test;
 
-import com.su.Student;
+import com.su.studentinfo.Student;
 
 
 public class StudentTest extends junit.framework.TestCase{

@@ -1,4 +1,4 @@
-package com.su;
+package com.su.studentinfo;
 
 public class Student {
 	private String name;
