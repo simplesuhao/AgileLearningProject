@@ -1,15 +1,11 @@
 package com.su.test;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import junit.framework.TestCase;
 
 import com.su.CourseSession;
 import com.su.DateUtil;
 import com.su.RosterReporter;
 import com.su.Student;
-
-import junit.framework.TestCase;
 
 public class RosterReporterTest extends TestCase{
 	public void testRosterReport(){
@@ -25,7 +21,7 @@ public class RosterReporterTest extends TestCase{
 				+ RosterReporter.ROSTER_REPORT_FOOTER + "2" + RosterReporter.NEWLINE, rosterReport);
 	}
 	
-	public Date createDate(int year,int month,int date){
+/*	public Date createDate(int year,int month,int date){
 		//return new Date(year-1900, month - 1, date);
 		GregorianCalendar calendar = new GregorianCalendar();
 		calendar.clear();
@@ -33,5 +29,5 @@ public class RosterReporterTest extends TestCase{
 		calendar.set(Calendar.MONTH, month - 1 );
 		calendar.set(Calendar.DAY_OF_MONTH, date);
 		return calendar.getTime();
-	}
+	}*/
 }
