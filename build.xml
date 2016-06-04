@@ -1,36 +1,132 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project name="AgileLearningProject" default="junitgui" basedir=".">
-	<property name="junitJar" value="\junit3.8.1\junit.jar" />
-	<project name="src.dir" value="${basedir}\source" />
-	<project name="build.dir" value="${basedir}\classes" />
-	
-	<path id="classpath"> 
-		<pathelement location="${junitJar}" />
-		<pathelement location="${bulid.dir}" />
-	</path>
-	
-	<target name="init" >
-		<mkdir dir="${build.dir}" />
-	</target>
-	
-	<target name="bulid" depends="init" description="build all">
-		<javac 
-			srcdir="${src.dir}" destdir="${build.dir}"
-			source="1.7"
-			deprecation="on" debug="on" optimize="off" includes="**" >
-			<classpath refid="classpath" />
-		</javac>
-	</target>
-	
-	<target name="junitgui" depends="build" description="run junitgui">
-		<java calssname="junit.awtui.TestRunner" fork="yes">
-			<arg value="com.su.testall.AllTests" />
-			<classpath refid="classpath" />
-		</java>
-	</target>
-	
-	<target name="clean">
-		<delete dir="${build.dir}" />
-	</target>
-	<target name="rebuildAll" depends="clean,build" description="rebuild all" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="AgileLearningProject">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="D:/MyEclipse Professional 2014"/>
+    <property name="junit.output.dir" value="junit"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <path id="JUnit 4.libraryclasspath">
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.junit_4.11.0.v201303080030/junit.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.hamcrest.core_1.3.0.v201303031735.jar"/>
+    </path>
+    <path id="AgileLearningProject.classpath">
+        <pathelement location="bin"/>
+        <path refid="JUnit 4.libraryclasspath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="AgileLearningProject.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="AgileLearningProject">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.su.report.test.RosterReporterTest" todir="${junit.output.dir}"/>
+            <test name="com.su.studentinfo.test.CourseSessionTest" todir="${junit.output.dir}"/>
+            <test name="com.su.studentinfo.test.DateUtilTest" todir="${junit.output.dir}"/>
+            <test name="com.su.studentinfo.test.StudentTest" todir="${junit.output.dir}"/>
+            <classpath refid="AgileLearningProject.classpath"/>
+        </junit>
+    </target>
+    <target name="CourseSessionTest (1)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.lesson2.test.CourseSessionTest" todir="${junit.output.dir}"/>
+            <classpath refid="AgileLearningProject.classpath"/>
+        </junit>
+    </target>
+    <target name="CourseSessionTest (2)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.su.studentinfo.test.CourseSessionTest" todir="${junit.output.dir}"/>
+            <classpath refid="AgileLearningProject.classpath"/>
+        </junit>
+    </target>
+    <target name="CourseSessionTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.lesson2.test.CourseSessionTest" todir="${junit.output.dir}"/>
+            <classpath refid="AgileLearningProject.classpath"/>
+        </junit>
+    </target>
+    <target name="DateUtilTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.su.studentinfo.test.DateUtilTest" todir="${junit.output.dir}"/>
+            <classpath refid="AgileLearningProject.classpath"/>
+        </junit>
+    </target>
+    <target name="PawnTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="su.com.test.PawnTest" todir="${junit.output.dir}"/>
+            <classpath refid="AgileLearningProject.classpath"/>
+        </junit>
+    </target>
+    <target name="RosterReporterTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.su.report.test.RosterReporterTest" todir="${junit.output.dir}"/>
+            <classpath refid="AgileLearningProject.classpath"/>
+        </junit>
+    </target>
+    <target name="StudentTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.lesson1.test.StudentTest" todir="${junit.output.dir}"/>
+            <classpath refid="AgileLearningProject.classpath"/>
+        </junit>
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
+    </target>
 </project>

@@ -5,14 +5,26 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import com.su.studentinfo.test.CourseSessionTest;
+
 public class CourseSession {
 	private String department;
 	private String number;
 	private Date startDate;
 	private ArrayList<Student> students = new ArrayList<>();
-	
+	private static int count;
 	public ArrayList<Student> getStudents() {
 		return students;
+	}
+	public static void resetCount(){
+		count = 0;
+	}
+	public static int getCount() {
+		return count;
+	}
+
+	public static void setCount(int count) {
+		CourseSession.count = count;
 	}
 
 	public CourseSession(String department, String number) {
@@ -26,6 +38,7 @@ public class CourseSession {
 		this.department = department;
 		this.number = number;
 		this.startDate = startDate;
+		CourseSession.incrementCount(); 
 	}
 	
 	public Date getEndDate(){
@@ -71,5 +84,8 @@ public class CourseSession {
 	}
 	public int getNumberOfStudents(){
 		return students.size();
+	}
+	private static void incrementCount(){
+		count = count + 1;
 	}
 }

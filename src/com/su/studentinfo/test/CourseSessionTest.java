@@ -65,5 +65,15 @@ public class CourseSessionTest extends TestCase{
 				+ "B" + RosterReporter.NEWLINE
 				+ RosterReporter.ROSTER_REPORT_FOOTER + "2" + RosterReporter.NEWLINE, rosterReport);
 	}
+	public void testCount(){
+		CourseSession.resetCount();
+		createCourseSession();
+		assertEquals(1, CourseSession.getCount());
+		createCourseSession();
+		assertEquals(2, CourseSession.getCount());
+	}
+	public CourseSession createCourseSession(){
+		return new CourseSession("ENGL", "101",startDate);
+	}
 	
 }
