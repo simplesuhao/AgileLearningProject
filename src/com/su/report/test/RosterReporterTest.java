@@ -1,6 +1,7 @@
 package com.su.report.test;
 
 import junit.framework.TestCase;
+import static com.su.report.RosterReporter.NEWLINE;
 
 import com.su.report.RosterReporter;
 import com.su.studentinfo.CourseSession;
@@ -16,9 +17,9 @@ public class RosterReporterTest extends TestCase{
 		String rosterReport = new RosterReporter(session).getReport();
 		assertEquals(
 				RosterReporter.ROSTER_REPORT_HEADER 
-				+ "A" + RosterReporter.NEWLINE
-				+ "B" + RosterReporter.NEWLINE
-				+ RosterReporter.ROSTER_REPORT_FOOTER + "2" + RosterReporter.NEWLINE, rosterReport);
+				+ "A" + NEWLINE
+				+ "B" + NEWLINE
+				+ RosterReporter.ROSTER_REPORT_FOOTER + "2" + NEWLINE, rosterReport);
 	}
 	
 /*	public Date createDate(int year,int month,int date){

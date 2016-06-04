@@ -13,6 +13,13 @@ public class CourseSession {
 	private Date startDate;
 	private ArrayList<Student> students = new ArrayList<>();
 	private static int count;
+	private int numberOfCredits;
+	public int getNumberOfCredits() {
+		return numberOfCredits;
+	}
+	public void setNumberOfCredits(int numberOfCredits) {
+		this.numberOfCredits = numberOfCredits;
+	}
 	public ArrayList<Student> getStudents() {
 		return students;
 	}
@@ -50,6 +57,10 @@ public class CourseSession {
 		return endDate;
 	}
 	
+	public static CourseSession create(String department, String number, Date startDate){
+		return new CourseSession(department, number, startDate);
+	}
+	
 	public Date getStartDate() {
 		return startDate;
 	}
@@ -59,6 +70,7 @@ public class CourseSession {
 	}
 
 	public void enroll(Student student){
+		student.addCredits(numberOfCredits);
 		students.add(student);
 	}
 	
@@ -86,6 +98,6 @@ public class CourseSession {
 		return students.size();
 	}
 	private static void incrementCount(){
-		count = count + 1;
+		count++;
 	}
 }
