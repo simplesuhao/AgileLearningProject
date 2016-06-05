@@ -58,19 +58,39 @@ public class StudentTest extends junit.framework.TestCase{
 	public void testCalculateGpa(){
 		Student student = new Student("a");
 		assertGpa(student,0.0);
-		student.addGrade("A");
+		student.addGrade(Student.Grade.A);
 		assertGpa(student,4.0);
-		student.addGrade("B");
+		student.addGrade(Student.Grade.B);
 		assertGpa(student,3.5);
-		student.addGrade("C");
+		student.addGrade(Student.Grade.C);
 		assertGpa(student,3.0);
-		student.addGrade("D");
+		student.addGrade(Student.Grade.D);
 		assertGpa(student,2.5);
-		student.addGrade("F");
+		student.addGrade(Student.Grade.F);
 		assertGpa(student,2.0);	
 	}
 	
 	private void assertGpa(Student student,double expectedGpa){
 		assertEquals(expectedGpa, student.getGpa(),GRADE_TOLERANCE);
+	}
+	
+	public void testCalculateHonorsStudentGpa(){
+		assertGpa(createHonorsStudents(), 0.0);
+		assertGpa(createHonorsStudents(Student.Grade.A), 5.0);
+		assertGpa(createHonorsStudents(Student.Grade.B), 4.0);
+		assertGpa(createHonorsStudents(Student.Grade.C), 3.0);
+		assertGpa(createHonorsStudents(Student.Grade.D), 2.0);
+		assertGpa(createHonorsStudents(Student.Grade.F), 0.0);
+	}
+	
+	private Student createHonorsStudents(Student.Grade grade){
+		Student student = createHonorsStudents();
+		student.addGrade(grade);
+		return student;
+	}
+	private Student createHonorsStudents(){
+		Student student = new Student("a");
+		student.setHonors();
+		return student;
 	}
 }
