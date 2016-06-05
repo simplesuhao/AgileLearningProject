@@ -1,6 +1,7 @@
 package com.su.report;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import com.su.studentinfo.CourseSession;
 
@@ -11,6 +12,7 @@ public class CourseReport {
 	}
 	
 	public String text(){
+		Collections.sort(sessions);
 		StringBuffer builder = new StringBuffer();
 		for (CourseSession session : sessions) {
 			builder.append(
