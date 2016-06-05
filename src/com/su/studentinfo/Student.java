@@ -1,6 +1,5 @@
 package com.su.studentinfo;
 
-import java.lang.Thread.State;
 
 public class Student {
 	private String name;

@@ -5,8 +5,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import com.su.studentinfo.test.CourseSessionTest;
-
 public class CourseSession {
 	private String department;
 	private String number;
