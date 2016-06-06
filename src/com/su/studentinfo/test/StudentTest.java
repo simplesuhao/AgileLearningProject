@@ -2,6 +2,7 @@ package com.su.studentinfo.test;
 
 import org.omg.CORBA.StructMember;
 
+import com.su.studentinfo.HonorsGradingStrategy;
 import com.su.studentinfo.Student;
 
 
@@ -90,7 +91,7 @@ public class StudentTest extends junit.framework.TestCase{
 	}
 	private Student createHonorsStudents(){
 		Student student = new Student("a");
-		student.setHonors();
+		student.setGradingStrategy(new HonorsGradingStrategy());
 		return student;
 	}
 }

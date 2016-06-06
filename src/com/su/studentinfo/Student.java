@@ -12,11 +12,16 @@ public class Student {
 	public static final int CREDITS_REQUIRED_FOR_FULL_TIME= 12;
 	public enum Grade {A,B,C,D,F};
 	private boolean isHonors = false;
-	public void setHonors(){
+	private GradingStrategy gradingStrategy = new RegularGradingStrategy();
+	public void setGradingStrategy(GradingStrategy gradingStrategy){
+		this.gradingStrategy = gradingStrategy;
+	}
+	public boolean isHonors() {
+		return isHonors;
+	}
+	public void setHonors() {
 		isHonors = true;
 	}
-	
-	
 	public Student(String name){
 		this.name = name;
 		credits = 0;
@@ -39,22 +44,9 @@ public class Student {
 		}
 		double total = 0.0;
 		for(Grade grade : grades){
-			total += gradePointsFor(grade);
+			total += gradingStrategy.getGradePointsFor(grade);
 		}
 		return total/grades.size();
-	}
-	
-	public int gradePointsFor(Grade grade){
-		if (grade == Grade.A) {
-			return  4;
-		}else if (grade == Grade.B) {
-			return  3;
-		}else if (grade == Grade.C) {
-			return  2;
-		}else if(grade == Grade.D){
-			return  1;
-		}
-		return 0;
 	}
 	
 	public int getCredits() {
