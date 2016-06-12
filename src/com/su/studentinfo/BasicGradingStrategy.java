@@ -1,11 +1,10 @@
 package com.su.studentinfo;
 
-import com.su.studentinfo.Student.Grade;
 
-public class RegularGradingStrategy implements GradingStrategy{
 
-	@Override
-	public int getGradePointsFor(Grade grade) {
+
+public class BasicGradingStrategy implements GradingStrategy{
+	public int getGradePointsFor(Student.Grade grade){
 		switch (grade){
 		case A : return 4;
 		case B : return 3;
@@ -14,5 +13,4 @@ public class RegularGradingStrategy implements GradingStrategy{
 		default : return 0;
 		}
 	}
-
 }

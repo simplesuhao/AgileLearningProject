@@ -12,7 +12,7 @@ public class Student {
 	public static final int CREDITS_REQUIRED_FOR_FULL_TIME= 12;
 	public enum Grade {A,B,C,D,F};
 	private boolean isHonors = false;
-	private GradingStrategy gradingStrategy = new RegularGradingStrategy();
+	private GradingStrategy gradingStrategy = new BasicGradingStrategy();
 	public void setGradingStrategy(GradingStrategy gradingStrategy){
 		this.gradingStrategy = gradingStrategy;
 	}
