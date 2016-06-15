@@ -12,6 +12,9 @@ public class CourseSession implements Comparable<CourseSession>{
 	private ArrayList<Student> students = new ArrayList<>();
 	private static int count;
 	private int numberOfCredits;
+	protected int getSessionLength(){
+		return 16;
+	}
 	public int getNumberOfCredits() {
 		return numberOfCredits;
 	}
@@ -48,8 +51,10 @@ public class CourseSession implements Comparable<CourseSession>{
 	
 	public Date getEndDate(){
 		GregorianCalendar calendar = new GregorianCalendar();
-		calendar.setTime(startDate);
-		int numberOfDays = 16 * 7 - 3;
+		calendar.setTime(getStartDate());
+		final int daysInWeek = 7;
+		final int daysFromFridayToMonday = 3;
+		int numberOfDays = getSessionLength() * daysInWeek - daysFromFridayToMonday;
 		calendar.add(Calendar.DAY_OF_YEAR, numberOfDays);
 		Date endDate = calendar.getTime();
 		return endDate;
